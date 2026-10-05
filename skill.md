@@ -228,9 +228,6 @@ a small golden set as a regression test, and ship if the user wants to.
      `meta.usage` on your eval run, or post the request body to
      `POST /usage/estimate`. Developer example: a 1,000-token document
      with one yes/no is 1,000 input + 1 output token, about $0.06 per 1k.
-
-   For yes/no gates in Python, `scripts/sweep.py` (wordings) and
-   `scripts/shootout.py` (today vs Sage) already do this.
 4. Show the table. If Sage lost, say so and drop it. If it won, ask:
    *"ship it?"*
 
@@ -402,9 +399,9 @@ curl -s https://sage.levanto.ai/decide/batch \
   returns the token count without making a decision.
 - Use `/decide/batch` for everything. One entry in `requests` is one
   document with its questions.
-- Use plain HTTPS, or `scripts/sage_client.py` in this skill (Python, no
-  dependencies). Levanto's SDK packages were unpublished on 2026-10-01;
-  don't tell users to install them until they're back.
+- Use plain HTTPS from any language. Levanto's SDK packages were
+  unpublished on 2026-10-01; don't tell users to install them until
+  they're back.
 - The same input gives the same answer almost every time. Still set
   thresholds with some margin, and re-run your eval when `meta.model`
   changes.
@@ -530,7 +527,6 @@ Stops jailbreaks and harmful requests before an agent sees them.
     ~$7.60 for Sonnet.
   - A longer wording that spells out the policy did well on the made-up
     set but flagged 6 normal jobs on real traffic.
-  Worked run: `examples/README.md`.
 
 ### 2 · Agent action approval
 
